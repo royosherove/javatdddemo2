@@ -1,6 +1,9 @@
 public class StringCalculator {
 
     public int add(String numbers) {
-        return  0;
+        if (numbers.length()==0){
+            return 0;
+        }
+        return  Integer.parseInt(numbers);
     }
 }
