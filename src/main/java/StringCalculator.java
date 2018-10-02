@@ -4,6 +4,14 @@ public class StringCalculator {
         if (numbers.length()==0){
             return 0;
         }
-        return  Integer.parseInt(numbers);
+        if (numbers.contains(",")){
+            int num1 = Integer.parseInt(String.valueOf(numbers.charAt(0)));
+            int num2 = Integer.parseInt(String.valueOf(numbers.charAt(2)));
+            return num1+num2;
+        }
+        else{
+
+            return  Integer.parseInt(numbers);
+        }
     }
 }
