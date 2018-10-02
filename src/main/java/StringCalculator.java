@@ -1,17 +1,32 @@
 public class StringCalculator {
 
     public int add(String numbers) {
-        if (numbers.length()==0){
-            return 0;
+        if (isEmptyInput(numbers)){
+            return getDefaultOutput();
         }
         if (numbers.contains(",")){
-            int num1 = Integer.parseInt(String.valueOf(numbers.charAt(0)));
-            int num2 = Integer.parseInt(String.valueOf(numbers.charAt(2)));
-            return num1+num2;
+            return sumMultiple(numbers);
         }
         else{
-
-            return  Integer.parseInt(numbers);
+            return sumSingle(numbers);
         }
+    }
+
+    protected int getDefaultOutput() {
+        return 0;
+    }
+
+    protected boolean isEmptyInput(String numbers) {
+        return numbers.length()==0;
+    }
+
+    protected int sumSingle(String numbers) {
+        return Integer.parseInt(numbers);
+    }
+
+    protected int sumMultiple(String numbers) {
+        int num1 = sumSingle(String.valueOf(numbers.charAt(0)));
+        int num2 = sumSingle(String.valueOf(numbers.charAt(2)));
+        return num1+num2;
     }
 }
